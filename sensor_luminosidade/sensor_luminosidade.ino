@@ -32,7 +32,7 @@ void handleSensors() {
     digitalWrite(ledVermelho, HIGH);
   }
 
-  // Monta JSON
+  // JSON
   String json = "{";
   json += "\"ldrValue\": " + String(ldrValue) + ",";
   json += "\"voltage\": " + String(voltage, 2) + ",";
@@ -53,7 +53,6 @@ void setup() {
   pinMode(ledVerde, OUTPUT);
   pinMode(pirPin, INPUT);
 
-  // Conectar ao Wi-Fi
   WiFi.begin(ssid, password);
   Serial.print("Conectando ao Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
@@ -62,7 +61,7 @@ void setup() {
   }
   Serial.println("\nWi-Fi Conectado! IP: " + WiFi.localIP().toString());
 
-  // Define rota da API
+  // Rota API
   server.on("/luminosidade", handleSensors);
 
   server.begin();
