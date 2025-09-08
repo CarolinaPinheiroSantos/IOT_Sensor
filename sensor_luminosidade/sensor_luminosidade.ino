@@ -1,7 +1,7 @@
 #include <WiFi.h>
 #include <WebServer.h>  // Biblioteca WebServer para criar endpoints REST
 
-// Configurações Wi-Fi
+// Wi-Fi
 const char* ssid = "smart_city";
 const char* password = "senai501";
 
@@ -11,10 +11,8 @@ const int ledVermelho = 14;
 const int ledVerde = 25;
 const int pirPin = 27;
 
-// Servidor Web
 WebServer server(80);
 
-// Função para retornar dados dos sensores em JSON
 void handleSensors() {
   int ldrValue = analogRead(ldrPin);
   float voltage = (ldrValue / 4095.0) * 3.3;
